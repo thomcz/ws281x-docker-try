@@ -18,9 +18,6 @@ class LedStrip:
         self.strip.begin()
         self.resetLeds()
 
-    def numPixels(self):
-        self.strip.numPixels()
-
     def setLeds(self, ledList, color):
         if (self.ledState == ledList):
             return

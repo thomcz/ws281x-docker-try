@@ -1,5 +1,3 @@
-import datetime
-
 from wordClockState import WordClockState
 from rpi_ws281x import Color
 
