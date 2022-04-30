@@ -7,3 +7,4 @@ MarkupSafe==2.0.1
 Werkzeug==2.0.1
 rpi-ws281x==4.3.0
 requests==2.26.0
+pytz==2022.1

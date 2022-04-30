@@ -1,4 +1,5 @@
-import datetime
+from datetime import datetime
+from pytz import timezone
 
 class WordClockState:
 
@@ -48,15 +49,20 @@ class WordClockState:
     _UHR = [80,99,100]
 
     def getActualState(self):
-        # TODO timezone
-        now = datetime.datetime.now()
-        minute = int(now.minute / 5)
-        hour = now.hour % 12 + (1 if now.minute > 4 else 0)
+        localDatetime = datetime.now(timezone('Europe/Berlin'))
+
+        minute = int(localDatetime.minute / 5)
+        hour = localDatetime.hour % 12 + (1 if minute > 4 else 0)
 
         return self.getPrefix() + \
             self.getMinute()[minute] + \
             self.getHour()[hour] + \
             (self.getPostfix() if(minute == 0) else [])
+
+    def calculateOffset(self, minute):
+        if minute > 4:
+            return minute
+        return 0
 
     def getPrefix(self):
         return self._ES_IST
