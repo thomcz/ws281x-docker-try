@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.14.0a5-slim-bookworm
+FROM python:3.8.20-slim
 
 RUN apt-get update && apt-get -y install gcc
 
